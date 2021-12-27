@@ -75,7 +75,6 @@ int main(int argc, char* argv[])
         cerr << "File open error." << endl;
         return -1;
     }
-
     // Find length of the map, initialize cost and read map file. 
     int N = findN(mapFile);
     vector<vector<int>> cost(N, vector<int>(N, MAX));
@@ -84,9 +83,8 @@ int main(int argc, char* argv[])
     vector<int> path;
     double start, end;
 
-    // Execute dijkstra and measure execution time. 
     start = omp_get_wtime();
-    cout << "Cost: " << dijsktra(N, cost, path, 519, 1106, 1) << endl;
+    cout << "Cost: " << dijsktra(N, cost, path, 500, 1000, 1) << endl;
     end = omp_get_wtime();
 
     // Print the shortest path. 
@@ -98,7 +96,7 @@ int main(int argc, char* argv[])
     cout << endl;
 
     // Print the execution time. 
-    cout << "Execution time: " << end - start << endl;
+    cout <<"Execution time: " << end - start << endl;
 
     return 0;
 }
